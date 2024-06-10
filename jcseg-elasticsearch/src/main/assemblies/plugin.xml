@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
 <assembly>
-    <id></id>
+    <id>jcseg</id>
     <formats>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <!-- 包括 plugin-descriptor.properties 和 security.policy -->
+        <fileSet>
+            <directory>${project.basedir}/plugin</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>*.properties</include>
+                <include>*.policy</include>
+            </includes>
+        </fileSet>
+    </fileSets>
     <dependencySets>
         <dependencySet>
             <outputDirectory>/</outputDirectory>
@@ -12,6 +23,8 @@
             <useTransitiveFiltering>true</useTransitiveFiltering>
             <excludes>
                 <exclude>org.elasticsearch:elasticsearch</exclude>
+                <exclude>org.apache.lucene:lucene-analysis-common</exclude>
+                <exclude>org.apache.lucene:lucene-core</exclude>
             </excludes>
         </dependencySet>        
     </dependencySets>
