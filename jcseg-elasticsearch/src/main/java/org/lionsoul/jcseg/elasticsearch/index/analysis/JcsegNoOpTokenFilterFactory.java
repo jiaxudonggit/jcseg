@@ -12,7 +12,7 @@ public class JcsegNoOpTokenFilterFactory extends AbstractTokenFilterFactory
     public JcsegNoOpTokenFilterFactory(IndexSettings indexSettings,
             Environment env, String name, Settings settings)
     {
-        super(indexSettings, name, settings);
+        super(name, settings);
     }
 
     @Override

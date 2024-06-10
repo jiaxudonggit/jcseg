@@ -1,7 +1,7 @@
 package org.lionsoul.jcseg.elasticsearch.plugin;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.elasticsearch.common.io.PathUtils;
+import org.elasticsearch.core.PathUtils;
 import org.elasticsearch.index.analysis.AnalyzerProvider;
 import org.elasticsearch.index.analysis.TokenFilterFactory;
 import org.elasticsearch.index.analysis.TokenizerFactory;
