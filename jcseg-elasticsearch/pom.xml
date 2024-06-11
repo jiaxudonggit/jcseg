@@ -35,6 +35,7 @@
       <groupId>org.elasticsearch</groupId>
       <artifactId>elasticsearch</artifactId>
       <version>8.9.1</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
   
@@ -106,6 +107,7 @@
         <version>3.6.0</version>
         <configuration>
           <appendAssemblyId>false</appendAssemblyId>
+          <finalName>analysis-jcseg-${project.parent.version}</finalName>
           <outputDirectory>${project.build.directory}/</outputDirectory>
           <descriptors>
             <descriptor>src/main/assemblies/plugin.xml</descriptor>

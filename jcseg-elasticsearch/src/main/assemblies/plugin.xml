@@ -1,21 +1,27 @@
 <?xml version="1.0"?>
 <assembly>
-    <id>jcseg</id>
+    <id>analysis-jcseg</id>
     <formats>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <fileSets>
-        <!-- 包括 plugin-descriptor.properties 和 security.policy -->
-        <fileSet>
-            <directory>${project.basedir}/plugin</directory>
-            <outputDirectory>/</outputDirectory>
-            <includes>
-                <include>*.properties</include>
-                <include>*.policy</include>
-            </includes>
-        </fileSet>
-    </fileSets>
+    <files>
+        <file>
+            <source>${project.basedir}/plugin/plugin-descriptor.properties</source>
+            <outputDirectory/>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>${project.basedir}/plugin/plugin-security.policy</source>
+            <outputDirectory/>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>${project.basedir}/plugin/jcseg.properties</source>
+            <outputDirectory/>
+            <filtered>true</filtered>
+        </file>
+    </files>
     <dependencySets>
         <dependencySet>
             <outputDirectory>/</outputDirectory>
