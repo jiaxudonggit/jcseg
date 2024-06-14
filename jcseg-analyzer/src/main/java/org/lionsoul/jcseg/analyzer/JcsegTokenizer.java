@@ -50,7 +50,8 @@ public class JcsegTokenizer extends Tokenizer
      * like the Array field in Elasticsearch or Solr
     */
     private int fieldOffset = 0;
-    
+    private int endOffset = 0;
+
     public JcsegTokenizer(
         ISegment.Type type,
         SegmenterConfig config,
@@ -67,7 +68,7 @@ public class JcsegTokenizer extends Tokenizer
     	
         final IWord word = segmentor.next();
         if ( word == null ) {
-            fieldOffset = offsetAtt.endOffset();
+            fieldOffset = endOffset;
             return false;
         }
         
@@ -75,9 +76,10 @@ public class JcsegTokenizer extends Tokenizer
         /// termAtt.copyBuffer(token, 0, token.length);
         termAtt.append(word.getValue());
         termAtt.setLength(word.getLength());
+        endOffset = fieldOffset + word.getPosition() + word.getLength();
         offsetAtt.setOffset(
         	correctOffset(fieldOffset + word.getPosition()), 
-        	correctOffset(fieldOffset + word.getPosition() + word.getLength())
+        	correctOffset(endOffset)
         );
         typeAtt.setType("word");
         
@@ -91,6 +93,7 @@ public class JcsegTokenizer extends Tokenizer
         final int finalOffset = correctOffset(fieldOffset);
         offsetAtt.setOffset(finalOffset, finalOffset);
         this.fieldOffset = 0;
+        this.endOffset = 0;
     }
     
     @Override

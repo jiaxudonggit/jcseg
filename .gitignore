@@ -19,3 +19,4 @@ target/
 # for idea
 .idea/
 *.iml
+*/.DS_Store
