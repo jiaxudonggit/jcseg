@@ -3,7 +3,7 @@ package org.lionsoul.jcseg.elasticsearch.index.analysis;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import org.elasticsearch.common.inject.Inject;
+import org.elasticsearch.injection.api.Inject;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.index.IndexSettings;
